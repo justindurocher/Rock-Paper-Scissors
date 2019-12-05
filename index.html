@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        var wins= 0;
+        var ties= 0;
+        var loses= 0;
+        alert("Welcome to a friendly game of Rock, Paper, Scissors!")
+        for (i=0; i<10; i++){
+        var hand = prompt("Enter r,p, or s to play! r for Rock, p for Paper, or s for Scissors");
+        hand=hand.toLowerCase();
+        var computer = ["r","p","s"];
+        var cHand = computer[Math.floor(Math.random()*computer.length)];
+            if (hand===cHand){
+                ties++;
+                alert("Computer chose the same, you tied! "+"Your Ties: " + ties);
+            } else if (hand==="r" && cHand==="p"){
+                loses++;
+                alert("Computer chose Paper! You Lost "+"Your Loses: " + loses);
+            } else if (hand==="p" && cHand==="r"){
+                wins++;
+                alert("Computer chose Rock! You Won, "+"Your Wins: " + wins) ;   
+            } else if (hand==="s" && cHand==="r"){
+                loses++;
+                alert("Computer chose Rock! You Lost "+"Your Loses: " + loses);
+            } else if (hand==="p" && cHand==="s"){
+                loses++;
+                alert("Computer chose scissors! You Lost "+"Your Loses: " + loses);
+            } else if (hand==="r" && cHand==="s"){
+                wins++;
+                alert("Computer chose scissors! You Won "+"Your Wins: " + wins);
+            } else if (hand==="s" && cHand==="p"){
+                wins++;
+                alert("Computer chose paper! You Won "+"Your Wins: " + wins);
+            } 
+         }
+            if (wins>loses){
+                alert("Congrats you have beaten the computer!")
+            }   else if (loses>wins){
+                alert("Sorry, the computer has beaten you! Better luck next time!")
+            } else {
+                alert("You and the computer have tied, Great match!")
+            }
+
+            alert("You won: "+ wins + " times. " + "You lost "+ loses + " times. " + "You tied " + ties + " times.");
+            var playAgain = confirm("Would you like to play again?");
+            if (playAgain===true){
+                window.location.reload();
+            } else{
+                alert("Thank you for playing Rock, Paper, Scissors!")
+            }
+    </script>
+
+</body>
+</html>
